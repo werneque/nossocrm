@@ -17,7 +17,7 @@ async function validateApiKey(apiKey: string, model: string): Promise<{ valid: b
             {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
-                legacyBodyUnused: JSON.stringify({
+                ...({
                     contents: [{ parts: [{ text: 'Hi' }] }],
                     generationConfig: { maxOutputTokens: 1 }
                 })
