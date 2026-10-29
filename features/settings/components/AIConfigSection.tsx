@@ -33,7 +33,7 @@ async function validateApiKey(apiKey: string, model: string): Promise<{ valid: b
         if (response.status === 403) {
             return { valid: false, error: 'Chave sem permissão para este modelo' };
         }
-        if (response.status === 429) {
+        if ((response.status === 429 || response.status === 503)) {
             return { valid: true }; // rate limit = key válida
         }
         return { valid: false, error: error?.error?.message || 'Erro desconhecido' };
