@@ -13,11 +13,11 @@ async function validateApiKey(apiKey: string, model: string): Promise<{ valid: b
 
     try {
         const response = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
+            `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`,
             {
-                method: 'POST',
+                method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
+                legacyBodyUnused: JSON.stringify({
                     contents: [{ parts: [{ text: 'Hi' }] }],
                     generationConfig: { maxOutputTokens: 1 }
                 })
