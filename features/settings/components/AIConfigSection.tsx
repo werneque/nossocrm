@@ -56,7 +56,7 @@ export const AIConfigSection: React.FC = () => {
     const updateUserSettings = useUpdateUserSettings();
 
     // Derived values from TanStack Query data
-    const aiModel = orgSettings?.aiModel || 'gemini-2.5-flash';
+    const aiModel = orgSettings?.aiModel || 'gemini-3.8-flash';
     const aiKeyConfigured = orgSettings?.aiKeyConfigured ?? false;
     const aiThinking = orgSettings?.aiThinking ?? true;
     const aiSearch = orgSettings?.aiSearch ?? true;
